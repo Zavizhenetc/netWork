@@ -1,0 +1,26 @@
+.nav {
+  background-color: white;
+  width: 13em;
+  position: fixed;
+  height: 100vh;
+}
+.title {
+  text-align: center;
+}
+.items {
+  list-style: none;
+}
+
+.item a {
+  text-decoration: none;
+  color: gray;
+ 
+}
+.item{
+  margin-top: 1em;
+  
+}
+.item .activeLink {
+  color: green;
+  border-bottom: 1px solid green;
+}

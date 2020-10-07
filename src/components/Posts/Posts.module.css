@@ -1,0 +1,27 @@
+.posts {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.addPost {
+  width: 100%;
+  min-height: 2em;
+  border: none;
+  background-color: #00000014;
+}
+.button {
+  text-align: center;
+  font-size: 14px;
+  width: 15%;
+  border: none;
+  border-left: 1px solid white;
+  background-color: #00000014;
+}
+.button:hover {
+  cursor: pointer;
+  color: white;
+}
+.input{
+  display: flex;
+  min-height: 3em;
+  margin-bottom: 3em;
+}

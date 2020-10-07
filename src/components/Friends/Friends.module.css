@@ -1,0 +1,10 @@
+.friends {
+  background-color: white;
+  width: 13em;
+  position: fixed;
+  right: 0;
+  height: 100vh;
+}
+.title {
+  text-align: center;
+}

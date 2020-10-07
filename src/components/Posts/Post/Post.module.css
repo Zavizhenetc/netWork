@@ -1,0 +1,14 @@
+
+.post{
+  display: flex;
+  padding-top: .5em;
+  padding-bottom: .3em;
+  align-items: center;
+}
+.authorAva{
+  max-width: 40px;
+  border-radius: 50%
+}
+.text{
+  padding: 5px;
+}

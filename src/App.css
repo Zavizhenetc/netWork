@@ -1,74 +1,27 @@
 .root{
-background-color: #d0cfce;
+  min-height: 100vh;
+background-color: #ececec;
+/* background-image: url('./images/bgOcean.jpg'); */
+background-size: cover;
+background-attachment: fixed;
+box-sizing: border-box;
+
+/* background-position:50%; */
 
 }
-/* ==============header */
-.header{
-margin: 0 auto;
-object-position: fixed;
-max-width: 1440px;
-background-color: white;
-height: 2vw;
-}
 
-
-.logo{
-  max-width: 20px;
-}
-.nav{
-
-}
-.nav__items{
-list-style: none;
-}
-.nav_item{
-
-}
-/* ============= main */
 .main{
   max-width: 1440px;
   margin: 0 auto;
-display: grid;
+/* display: grid;
 grid-template-columns: 20% 1fr 20%;
-grid-gap: 30px;
+grid-gap: 30px; */
+display: flex;
+padding-top: 2.7vw;
+
 
 }
 
-.main__nav{
-background-color: grey;
-}
-
-.main__nav-items{
-  list-style: none;
-}
-
-.main__nav-item{
-
-}
-/* ========contain */
-.content{
-
-}
-.author__ava{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-
-}
-
-.post{
-
-  
-}
-.friends{
-
-}
-
-/* ===========footer */
-.footer{
-
-}
 
 
 
