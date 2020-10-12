@@ -1,16 +1,46 @@
 import React, { Component } from "react";
 import styles from "./Dialogs.module.css";
 import Messages from "./Messages/Messages.jsx";
-import {NavLink} from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
-const Dialogs = () => {
+const DialogItem = (props) => {
+  return (
+    <li className={styles.dialogsItem}>
+      <NavLink to={`/Dialogs/${props.id}`} activeClassName={styles.activeLink}>
+        {props.name}
+      </NavLink>
+    </li>
+  );
+};
+
+const Dialogs = (props) => {
+  const dialogs = [
+    {
+      id: "1",
+      name: "ALex",
+    },
+    {
+      id: "2",
+      name: "Dima",
+    },
+    {
+      id: "3",
+      name: "Serg",
+    },
+    {
+      id: "4",
+      name: "Dasha",
+    },
+  ];
+  const dialogsElements = dialogs.map((dialog) => {
+    return <DialogItem name={dialog.name} id={dialog.id} />
+  });
+
   return (
     <div className={styles.dialogs}>
       <ul className={styles.dialogsItems}>
-        <li className={styles.dialogsItem}><NavLink to="/Dialogs/1" activeClassName={styles.activeLink}>ALex</NavLink></li>
-        <li className={styles.dialogsItem}><NavLink to="/Dialogs/2" activeClassName={styles.activeLink}>Dima</NavLink></li>
-        <li className={styles.dialogsItem}><NavLink to="/Dialogs/3" activeClassName={styles.activeLink}>Serg</NavLink></li>
-        <li className={styles.dialogsItem}><NavLink to="/Dialogs/4" activeClassName={styles.activeLink}>Dasha</NavLink></li>
+      {dialogsElements}
+        
       </ul>
       <Messages />
     </div>

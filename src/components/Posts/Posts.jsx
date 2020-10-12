@@ -2,6 +2,28 @@ import React, { Component } from "react";
 import styles from "./Posts.module.css";
 import Post from "./Post/Post.jsx";
 
+const postsData = [
+  {
+    id: "1",
+    message: "Hello",
+    likesCount: "10",
+  },
+  {
+    id: "2",
+    message: "first",
+    likesCount: "5",
+  },
+  {
+    id: "3",
+    message: "second",
+    likesCount: "20",
+  },
+];
+
+const postsElements = postsData.map((post) => (
+  <Post message={post.message} likesCount={post.likesCount} />
+));
+
 const Posts = () => {
   return (
     <div className={styles.posts}>
@@ -15,13 +37,7 @@ const Posts = () => {
           send post
         </button>
       </div>
-
-      <Post message="first" />
-      <Post message ="echo odna"/>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {postsElements} 
     </div>
   );
 };
