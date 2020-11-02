@@ -1,14 +1,14 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import styles from './Profile.module.css';
 
 
+
 const Profile = (props) =>{
   return (
-
     <div className={styles.author}>
     <div className={styles.avatarContainer}>
-      <img
-        className={styles.authorAvatar}
+      <img className={styles.authorAvatar}
         src="https://img3.goodfon.ru/wallpaper/nbig/8/37/dzhon-snou-igra-prestolov-kit.jpg"
       />
     </div>

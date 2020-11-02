@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import styles from "./Content.module.css";
-import Posts from "../Posts/Posts.jsx";
-import Profile from "../Profile/Profile.jsx";
+import Posts from "./Posts/Posts.jsx";
+import Profile from "./Profile/Profile.jsx";
 
 
-const Content = () => {
+const Content = (props) => {
+  
+
   return (
     <div className={styles.content}>
       <Profile />
-      <Posts />
+      <Posts postsData={props.postsData} />
     </div>
   );
 };

@@ -12,18 +12,20 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
-function App() {
+
+
+function App(props) {
   return (
     <BrowserRouter>
     <div className="root">
       <Header />
       <section className="main">
         <Navbar />
-        <Route path = "/Dialogs" component={Dialogs}/>
-        <Route  path = "/Content" component={Content}/>
-        <Route  path = "/News" component={News}/>
-        <Route  path = "/Music" component={Music}/>
-        <Route  path = "/Settings" component={Settings}/>
+        <Route path = "/Dialogs" render ={ ()=> <Dialogs  messages ={props.state.messages}  dialogs={props.state.dialogs} />}/>
+        <Route  path = "/Content" render ={ () => <Content postsData={props.state.postsData}  />}/>
+        <Route  path = "/News" render={()=> <News />}/>
+        <Route  path = "/Music" render={ ()=> <Music />}/>
+        <Route  path = "/Settings" render={ ()=> <Settings />}/>
         {/* <Content /> */}
         {/* <Messages /> */}
         <Friends />
