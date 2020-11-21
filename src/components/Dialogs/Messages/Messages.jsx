@@ -7,9 +7,9 @@ const Message = (props) => {
 
 const Messages = (props) => {
   const messagesItems = props.messages.map((message) => (
-    <Message message={message.message} />
+    <Message message={message.message} key={message.id} />
   ));
   return <ul className={styles.messages}>{messagesItems}</ul>;
 };
 
-export default Messages;
+export default Messages; 

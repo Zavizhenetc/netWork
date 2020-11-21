@@ -4,13 +4,13 @@ import Posts from "./Posts/Posts.jsx";
 import Profile from "./Profile/Profile.jsx";
 
 
-const Content = (props) => {
+const Content = (props) => {  
   
 
   return (
     <div className={styles.content}>
       <Profile />
-      <Posts postsData={props.postsData} />
+      <Posts postsData={props.postsData} addPost={props.addPost} />
     </div>
   );
 };

@@ -16,13 +16,13 @@ import Settings from "./components/Settings/Settings";
 
 function App(props) {
   return (
-    <BrowserRouter>
+  
     <div className="root">
       <Header />
       <section className="main">
         <Navbar />
-        <Route path = "/Dialogs" render ={ ()=> <Dialogs  messages ={props.state.messages}  dialogs={props.state.dialogs} />}/>
-        <Route  path = "/Content" render ={ () => <Content postsData={props.state.postsData}  />}/>
+        <Route path = "/Dialogs" render ={ ()=> <Dialogs  messages ={props.state.messagesPages.messages}  dialogs={props.state.messagesPages.dialogs} />}/>
+        <Route  path = "/Content" render ={ () => <Content postsData={props.state.contentPage.postsData}  addPost={props.addPost} />}/>
         <Route  path = "/News" render={()=> <News />}/>
         <Route  path = "/Music" render={ ()=> <Music />}/>
         <Route  path = "/Settings" render={ ()=> <Settings />}/>
@@ -33,7 +33,6 @@ function App(props) {
       </section>
       <Footer />
     </div>
-    </BrowserRouter>
   );
 }
 

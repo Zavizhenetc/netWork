@@ -8,7 +8,7 @@ import DialogsItem from "./DialogsItem/DialogsItem.jsx"
 const Dialogs = (props) => {
 
   const dialogsElements = props.dialogs.map((dialog) => {
-    return <DialogsItem name={dialog.name} id={dialog.id} />
+    return <DialogsItem name={dialog.name} id={dialog.id}  key={dialog.id}/>
   });
 
   return (

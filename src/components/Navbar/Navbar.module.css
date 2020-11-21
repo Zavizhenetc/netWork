@@ -1,6 +1,6 @@
 .nav {
   background-color: white;
-  width: 13em;
+  width: 12em;
   position: fixed;
   height: 100vh;
 }
@@ -14,11 +14,9 @@
 .item a {
   text-decoration: none;
   color: gray;
- 
 }
-.item{
+.item {
   margin-top: 1em;
-  
 }
 .item .activeLink {
   color: green;

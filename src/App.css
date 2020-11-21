@@ -1,31 +1,24 @@
-.root{
+.root {
   min-height: 100vh;
-background-color: #ececec;
-/* background-image: url('./images/bgOcean.jpg'); */
-background-size: cover;
-background-attachment: fixed;
-box-sizing: border-box;
-
-/* background-position:50%; */
+  background-color: #ececec;
+  background-size: cover;
+  background-attachment: fixed;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 
 }
 
-.main{
+.main {
   max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
-/* display: grid;
+  /* display: grid;
 grid-template-columns: 20% 1fr 20%;
 grid-gap: 30px; */
-display: flex;
-padding-top: 2.7vw;
-
-
+  display: flex;
+  padding-top: 2.7vw;
 }
-
-
-
-
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
