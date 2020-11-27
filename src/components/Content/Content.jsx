@@ -10,7 +10,8 @@ const Content = (props) => {
   return (
     <div className={styles.content}>
       <Profile />
-      <Posts postsData={props.postsData} addPost={props.addPost} />
+      <Posts contentPage={props.contentPage} dispatch={props.dispatch}  />
+     
     </div>
   );
 };

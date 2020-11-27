@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./Dialogs.module.css";
+// import Messages from "./Messages/Messages.jsx";
 import Messages from "./Messages/Messages.jsx";
 import { NavLink } from "react-router-dom";
 import DialogsItem from "./DialogsItem/DialogsItem.jsx"
@@ -17,7 +18,7 @@ const Dialogs = (props) => {
       {dialogsElements}
         
       </ul>
-      <Messages messages ={props.messages} />
+      <Messages messages ={props.messages}  dispatch={props.dispatch} />
     </div>
   );
 };

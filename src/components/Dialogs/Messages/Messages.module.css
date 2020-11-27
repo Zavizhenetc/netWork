@@ -8,3 +8,8 @@
 .message {
   padding-top: .5em;
 }
+.messages__textContainer{
+  padding: 4%;
+  display: flex;
+  justify-content: center;
+}
