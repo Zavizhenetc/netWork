@@ -1,12 +1,12 @@
 import { createStore, combineReducers } from 'redux';
-import contentPageReducer from './contentPageReducer.js';
-import messagesPagesReducer from './messagesPagesReducer.js';
+import profilePageReducer from './profilePageReducer.js';
+import dialogsPageReducer from './dialogsPageReducer.js';
 import sideBarReducer from './sideBarReducer.js';
 
 
 let redusers = combineReducers({
-  contentPage: contentPageReducer,
-  messagesPages: messagesPagesReducer,
+  profilePage: profilePageReducer,
+  dialogsPage: dialogsPageReducer,
   sideBar: sideBarReducer,
 });
 

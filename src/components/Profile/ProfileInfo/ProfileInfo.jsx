@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
-import styles from './Profile.module.css';
+import styles from './ProfileInfo.module.css';
 
 
 
-const Profile = (props) =>{
+const ProfileInfo = (props) =>{
   return (
     <div className={styles.author}>
     <div className={styles.avatarContainer}>
@@ -21,4 +21,4 @@ const Profile = (props) =>{
   )
 }
 
-export default Profile
+export default ProfileInfo

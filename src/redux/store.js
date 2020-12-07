@@ -1,5 +1,5 @@
-import contentPageReducer from './contentPageReducer.js';
-import messagesPagesReducer from './messagesPagesReducer.js';
+import profilePageReducer from './contentPageReducer.js';
+import dialogsPageReducer from './messagesPagesReducer.js';
 import sideBarReducer from './sideBarReducer.js';
 
 const ADD_POST = 'ADD-POST';
@@ -63,7 +63,7 @@ let store = {
           name: 'Dasha',
         },
       ],
-      newMessageBody: '',
+      newMessageBody: ''
     },
     sidebar: {},
   },
@@ -109,11 +109,11 @@ let store = {
   },
 
   dispatch(action) {
-    this._state.contentPage = contentPageReducer(
+    this._state.contentPage = profilePageReducer(
       this._state.contentPage,
       action
     );
-    this._state.messagesPages = messagesPagesReducer(
+    this._state.messagesPages = dialogsPageReducer(
       this._state.messagesPages,
       action
     );
