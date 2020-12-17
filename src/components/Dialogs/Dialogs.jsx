@@ -23,7 +23,7 @@ const Dialogs = (props) => {
   }
 
   const dialogsElements = state.dialogs.map((dialog) => {
-    return <DialogsItem name={dialog.name} id={dialog.id} key={dialog.id}/>
+    return <DialogsItem name={dialog.name} key={dialog.id} id={dialog.id} />
   });
 
   const messagesItems = state.messages.map((message) => (
