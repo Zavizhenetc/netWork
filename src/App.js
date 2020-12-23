@@ -1,5 +1,5 @@
 import React from "react";
-import  {BrowserRouter, Route} from "react-router-dom"
+import {BrowserRouter, Route} from "react-router-dom"
 
 import "./App.css";
 import Profile from "./components/Profile/Profile";
@@ -11,29 +11,25 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-
+import FriendsContainer from "./components/Friends/FriendsContainer";
 
 
 function App(props) {
   return (
     <div className="root">
-      <Header />
+      <Header/>
       <section className="main">
-        <Navbar />
-        <Route path = "/Dialogs" render ={ ()=> <DialogsContainer  />}/>
-        {/*<Route path = "/Dialogs" render ={ ()=> <DialogsContainer  store ={props.store}   />}/>*/}
-        <Route  path = "/Profile" render ={ () => <Profile />}/>
-        {/*<Route  path = "/Profile" render ={ () => <Profile store={props.store}  />}/> */}
+        <Navbar/>
+        <Route path="/Dialogs" render={() => <DialogsContainer/>}/>
+        <Route path="/Profile" render={() => <Profile/>}/>
+        <Route path="/Friends" render={() => <FriendsContainer/>}/>
+        <Route path="/News" render={() => <News/>}/>
+        <Route path="/Music" render={() => <Music/>}/>
+        <Route path="/Settings" render={() => <Settings/>}/>
+        {/*<Friends/>*/}
 
-        {/* <Route path = "/Dialogs" render ={ ()=> <Dialogs  store ={props.store} messages ={props.messagesPages.messages} dispatch={props.dispatch}  dialogs={props.state.messagesPages.dialogs} />}/> */}
-        {/* <Route  path = "/Profile" render ={ () => <Profile contentPage={props.state.contentPage}  dispatch={props.dispatch} />}/> */}
-        <Route  path = "/News" render={()=> <News />}/>
-        <Route  path = "/Music" render={ ()=> <Music />}/>
-        <Route  path = "/Settings" render={ ()=> <Settings />}/>
-        <Friends />
-     
       </section>
-      <Footer />
+      <Footer/>
     </div>
   );
 }
