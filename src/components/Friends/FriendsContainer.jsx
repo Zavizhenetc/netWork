@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-  followAC,
-  setUsersAC,
-  unFollowAC,
-  setCurrentPageAC,
-  setTotalUsersCountAC,
-  toggleIsFetchingAC
+  follow,
+  setUsers,
+  unFollow,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsFetching
 } from "../../redux/friendsPageReducer";
 import * as axios from "axios";
 import Friends from "./Friends";
@@ -37,7 +37,7 @@ class FriendsContainer extends React.Component {
   render() {
 
     return <>
-      {this.props.isFetching ? <Preloader /> : null}
+      {this.props.isFetching ? <Preloader/> : null}
       <Friends totalUsersCount={this.props.totalUsersCount}
                pageSize={this.props.pageSize}
                onPageChanged={this.onPageChanged}
@@ -61,28 +61,31 @@ const mapStateToProps = (state) => {
 
   }
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId))
-    },
-    unfollow: (userId) => {
-      dispatch(unFollowAC(userId))
-    },
-    setUsers: (users) => {
-      dispatch(setUsersAC(users))
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber))
-    },
-    setTotalUsersCount: (totalCount) => {
-      dispatch(setTotalUsersCountAC(totalCount))
-    },
-    toggleIsFetching: (isFetching)=>{
-      dispatch(toggleIsFetchingAC(isFetching))
-    }
-  }
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userId) => {
+//       dispatch(followAC(userId))
+//     },
+//     unfollow: (userId) => {
+//       dispatch(unFollowAC(userId))
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsersAC(users))
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber))
+//     },
+//     setTotalUsersCount: (totalCount) => {
+//       dispatch(setTotalUsersCountAC(totalCount))
+//     },
+//     toggleIsFetching: (isFetching) => {
+//       dispatch(toggleIsFetchingAC(isFetching))
+//     }
+//   }
+// };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsContainer);
+// export default connect(mapStateToProps, mapDispatchToProps)(FriendsContainer);
+export default connect(mapStateToProps, {
+  toggleIsFetching, setTotalUsersCount, setCurrentPage, setUsers, unFollow, follow
+})(FriendsContainer);

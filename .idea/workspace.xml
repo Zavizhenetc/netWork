@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a425c2f0-f938-44e8-9589-47842a2862f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Friends/Friends.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Friends/Friends.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Friends/Friends.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Friends/Friends.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Friends/FriendsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Friends/FriendsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/bgOcean.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/bgOcean.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/icon_cat.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/icon_cat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/friendsPageReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/friendsPageReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +79,7 @@
       <workItem from="1608220695586" duration="34166000" />
       <workItem from="1609088541321" duration="23000" />
       <workItem from="1609091671019" duration="81000" />
-      <workItem from="1609091881114" duration="4670000" />
+      <workItem from="1609091881114" duration="5117000" />
     </task>
     <servers />
   </component>
