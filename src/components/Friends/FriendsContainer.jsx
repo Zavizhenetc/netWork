@@ -44,7 +44,7 @@ class FriendsContainer extends React.Component {
                currentPage={this.props.currentPage}
                friendsPage={this.props.friendsPage}
                follow={this.props.follow}
-               unfollow={this.props.unfollow}
+               unFollow={this.props.unFollow}
       />
     </>
   }
