@@ -1,33 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styles from './Friends.module.css';
-import * as axios from 'axios';
 import userPhoto from '../../assets/images/user.png';
 
-class Friends extends React.Component {
-constructor(props) {
-  super(props);
-    axios.get('https://social-network.samuraijs.com/api/1.0/users')
-      .then(response => {
+ const Friends = (props)=> {
+  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  let pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
 
-        this.props.setUsers(response.data.items)
-      });
-}
-  // getUsers = () => {
-  //   if (this.props.friendsPage.length === 0) {
-  //     axios.get('https://social-network.samuraijs.com/api/1.0/users')
-  //       .then(response => {
-  //
-  //         this.props.setUsers(response.data.items)
-  //       });
-  //   }
-  // }
-
-  render() {
-    return (
+    return(
       <div className={styles.friends}>
-        {/*<button onClick={this.getUsers}> Get Users</button>*/}
+        <div className={styles.pages}>
+          {pages.map(p => {
+            return <span
+              className={props.currentPage === p ? `${styles.selectedPage} ${styles.pageNum}` : `${styles.pageNum}`}
+              onClick={(e) => { props.onPageChanged(p) }}>
+              {p}
+              </span>
+          })}
+        </div>
         {
-          this.props.friendsPage.map(user => <div key={user.id}>
+          props.friendsPage.map(user => <div key={user.id}>
         <span>
           <div>
             <img src={user.photos.small != null ? user.photos.small : userPhoto} alt="" className={styles.userPhoto}/>
@@ -35,9 +29,9 @@ constructor(props) {
           <div>
             {
               user.followed ? <button onClick={() => {
-                this.props.unfollow(user.id)
+                props.unfollow(user.id)
               }}>Unfollow</button> : <button onClick={() => {
-                this.props.follow(user.id)
+                props.follow(user.id)
               }}>Follow</button>
             }
           </div>
@@ -59,6 +53,4 @@ constructor(props) {
       </div>
     )
   }
-}
-
 export default Friends;

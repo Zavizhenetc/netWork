@@ -17,6 +17,7 @@
 grid-template-columns: 20% 1fr 20%;
 grid-gap: 30px; */
   display: flex;
+ flex-direction: column;
   padding-top:  3.5vw;
 }
 

@@ -4,7 +4,6 @@ import {BrowserRouter, Route} from "react-router-dom"
 import "./App.css";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
-import Friends from "./components/Friends/Friends";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";

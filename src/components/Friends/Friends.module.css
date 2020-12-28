@@ -8,10 +8,31 @@
     /*right: 0;*/
     /*height: 100vh;*/
 }
-.userPhoto{
+.pages{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.selectedPage {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.pageNum {
+    margin-right: .5em;
+    cursor: pointer;
+}
+
+.userPhoto {
     border-radius: 50%;
     max-width: 200px;
 }
+
 .title {
     text-align: center;
+}
+.preloader{
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
 }
