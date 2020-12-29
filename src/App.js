@@ -19,12 +19,18 @@ function App(props) {
       <Header/>
       <section className="main">
         <Navbar/>
-        <Route path="/Dialogs" render={() => <DialogsContainer/>}/>
-        <Route path="/Profile" render={() => <ProfileContainer/>}/>
-        <Route path="/Friends" render={() => <FriendsContainer/>}/>
-        <Route path="/News" render={() => <News/>}/>
-        <Route path="/Music" render={() => <Music/>}/>
-        <Route path="/Settings" render={() => <Settings/>}/>
+        <Route path="/Dialogs"
+               render={() => <DialogsContainer/>}/>
+        <Route path="/profile/:userId?"
+               render={() => <ProfileContainer/>}/>
+        <Route path="/Friends"
+               render={() => <FriendsContainer/>}/>
+        <Route path="/News"
+               render={() => <News/>}/>
+        <Route path="/Music"
+               render={() => <Music/>}/>
+        <Route path="/Settings"
+               render={() => <Settings/>}/>
         {/*<Friends/>*/}
 
       </section>
