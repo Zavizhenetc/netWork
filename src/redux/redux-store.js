@@ -3,6 +3,7 @@ import profilePageReducer from './profilePageReducer.js';
 import dialogsPageReducer from './dialogsPageReducer.js';
 import sideBarReducer from './sideBarReducer.js';
 import friendsPageReducer from "./friendsPageReducer";
+import authReducer from "./authReducer";
 
 
 let reducers = combineReducers({
@@ -10,6 +11,7 @@ let reducers = combineReducers({
   dialogsPage: dialogsPageReducer,
   friends: friendsPageReducer,
   sideBar: sideBarReducer,
+  auth: authReducer,
 });
 
 let store = createStore(reducers);
