@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Friends.module.css';
 import userPhoto from '../../assets/images/user.png';
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 
 const Friends = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -34,38 +33,16 @@ const Friends = (props) => {
           </div>
           <div>
             {
-              user.followed ? <button onClick={() => {
-                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
-                  withCredentials: true,
-                  headers:{
-                    "API-KEY": "542901ee-8d47-4ec8-a8ac-f9c2d0d99a52",
-                  }
-                })
-                  .then(response => {
-                    if (response.data.resultCode == 0) {
-                      props.unFollow(user.id)
-                    }
-                  });
-
-              }}>Unfollow</button> : <button onClick={() => {
-                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
-                  withCredentials: true,
-                  headers:{
-                    "API-KEY": "542901ee-8d47-4ec8-a8ac-f9c2d0d99a52",
-                  }
-                })
-                .then(response => {
-                if (response.data.resultCode == 0) {
-                props.follow(user.id)
-              }
-              });
-
-
-              }}>Follow</button>
-              }
+              user.followed ? <button disabled={props.followingInProgress.some(id => id === user.id)}
+                                      onClick={() => { props.unfollow(user.id);
+                }}>Unfollow</button> :
+                <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                  props.follow(user.id);
+                }}>Follow</button>
+            }
               </div>
               </span>
-              <span>
+            <span>
               <span>
               <div>{user.name}</div>
               <div>{user.status}</div>
@@ -75,11 +52,11 @@ const Friends = (props) => {
               <div>{'user.location.city'}</div>
               </span>
               </span>
-              </div>
-              )
-            }
+          </div>
+        )
+      }
 
     </div>
-          )
-          }
+  )
+}
 export default Friends;
