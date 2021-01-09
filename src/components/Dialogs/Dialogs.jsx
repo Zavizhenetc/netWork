@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import Messages from "./Messages/Messages.jsx";
 import DialogsItem from "./DialogsItem/DialogsItem.jsx"
+import {Redirect} from "react-router-dom";
 
 const Message = (props) => {
   return <li className={styles.message}>{props.message}</li>;
@@ -30,6 +31,8 @@ const Dialogs = (props) => {
     <Message message={message.message} key={message.id}
     />
   ));
+  //делаем редирект если не залогинен
+  if (!props.isAuth ) return <Redirect to={"/Login"} />
 
   return (
     <div className={styles.dialogs}>
