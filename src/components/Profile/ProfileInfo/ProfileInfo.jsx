@@ -10,8 +10,8 @@ const ProfileInfo = (props) => {
     return <Preloader/>
   } else {
     return (
-      <>
-        <ProfileStatus status="hello"/>
+      <div>
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
         <div className={styles.author}>
           <div className={styles.avatarContainer}>
             <img className={styles.authorAvatar}
@@ -26,10 +26,10 @@ const ProfileInfo = (props) => {
             <p className={styles.dateBirth}>Date of birth: 19.07.1993</p>
           </div>
         </div>
-      </>
+      </div>
 
     )
-  }
+  };
 }
 
 export default ProfileInfo
