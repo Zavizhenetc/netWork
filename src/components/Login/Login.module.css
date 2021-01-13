@@ -1,4 +1,10 @@
 
-.title{
+.login {
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 70%;
+}
+
+.title {
     text-align: center;
 }
