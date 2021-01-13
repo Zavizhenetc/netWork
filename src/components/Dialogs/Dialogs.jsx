@@ -3,6 +3,7 @@ import styles from "./Dialogs.module.css";
 import Messages from "./Messages/Messages.jsx";
 import DialogsItem from "./DialogsItem/DialogsItem.jsx"
 import {Redirect} from "react-router-dom";
+import {Field, reduxForm} from "redux-form";
 
 const Message = (props) => {
   return <li className={styles.message}>{props.message}</li>;
@@ -13,18 +14,12 @@ const Dialogs = (props) => {
   let newMessageBody = state.newMessageBody;
 
 
-  const onSendMessageClick = () => {
-    props.sendMessage();
 
-  }
-
-  const onNewMessageChange = (event) => {
-    let body = event.target.value;
-    props.updateNewMessageBody(body);
-  }
-
+const addNewMessage =(values)=>{
+  props.sendMessage(values.newMessageBody);
+}
   const dialogsElements = state.dialogs.map((dialog) => {
-    return <DialogsItem name={dialog.name} key={dialog.id} id={dialog.id} />
+    return <DialogsItem name={dialog.name} key={dialog.id} id={dialog.id}/>
   });
 
   const messagesItems = state.messages.map((message) => (
@@ -32,7 +27,17 @@ const Dialogs = (props) => {
     />
   ));
   //делаем редирект если не залогинен
-  if (!props.isAuth ) return <Redirect to={"/Login"} />
+  if (!props.isAuth) return <Redirect to={"/Login"}/>
+
+  const AddMessageForm = (props) => {
+    return (
+      <form onSubmit={props.handleSubmit} >
+        <Field  component={'textarea'} name={'newMessageBody'} placeholder='Enter your message'/>
+        <button >Send</button>
+      </form>
+    )
+  }
+  const  AddMessageFormRedux  = reduxForm({form:'dialogAddMessageForm '})(AddMessageForm);
 
   return (
     <div className={styles.dialogs}>
@@ -43,16 +48,13 @@ const Dialogs = (props) => {
         {messagesItems}
         <div className={styles.messages__textContainer}>
           <Messages/>
-          <textarea
-            onChange={onNewMessageChange}
-            value={newMessageBody}
-            placeholder='Enter your message'>
-          </textarea>
-          <button type='submit' onClick={onSendMessageClick}>Send</button>
+          <AddMessageFormRedux  onSubmit={addNewMessage} />
         </div>
+
       </div>
     </div>
   );
 };
+
 
 export default Dialogs;
