@@ -4,6 +4,8 @@ import Messages from "./Messages/Messages.jsx";
 import DialogsItem from "./DialogsItem/DialogsItem.jsx"
 import {Redirect} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
+import {Textarea} from "../common/FormsControls/FormsControls";
+import {maxLengthCreator, required} from "../../utils/validators/validators";
 
 const Message = (props) => {
   return <li className={styles.message}>{props.message}</li>;
@@ -29,10 +31,13 @@ const addNewMessage =(values)=>{
   //делаем редирект если не залогинен
   if (!props.isAuth) return <Redirect to={"/Login"}/>
 
+  const maxLength50 = maxLengthCreator(50)
   const AddMessageForm = (props) => {
+
     return (
       <form onSubmit={props.handleSubmit} >
-        <Field  component={'textarea'} name={'newMessageBody'} placeholder='Enter your message'/>
+        <Field  component={Textarea}  validate={[required, maxLength50 ]}
+                name={'newMessageBody'} placeholder='Enter your message'/>
         <button >Send</button>
       </form>
     )

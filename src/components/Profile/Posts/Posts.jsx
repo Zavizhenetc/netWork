@@ -1,34 +1,32 @@
 import React, {Component} from 'react';
 import styles from './Posts.module.css';
 import Post from './Post/Post.jsx';
+import {Field, reduxForm} from "redux-form";
+import { maxLengthCreator, required} from "../../../utils/validators/validators";
+import {Textarea} from "../../common/FormsControls/FormsControls";
 
 
 const Posts = (props) => {
   const postsElements = props.posts.map((post) => (
     <Post message={post.message} likesCount={post.likesCount} key={post.id}/>
   ));
-  const onAddPost = () => {
-    props.addPost();
+  const onAddPost = (values) => {
+    props.addPost(values.newPostText);
   };
-
-  const onPostChange = (event) => {
-    let text = event.target.value;
-    props.updateNewPostText(text);
-
-  };
-
+const maxLength10 = maxLengthCreator(10);
+  const AddNewPostForm=(props)=>{ 
+    return(
+      <form className={styles.input} onSubmit={props.handleSubmit} >
+        <Field className={styles.addPost} name='newPostText'  placeholder='что у вас нового' component={Textarea}
+               validate={[required, maxLength10 ]}  />
+        <button className={styles.button} >Add post</button>
+      </form>
+    )
+  }
+  const AddNewPostFormRedux = reduxForm({form:'ProfileAddNewPostForm'})(AddNewPostForm);
   return (
     <div className={styles.posts}>
-      <div className={styles.input}>
-        <input onChange={onPostChange} value={props.newPostTextBody}
-               className={styles.addPost}
-               type='text'
-               placeholder='что у вас нового'
-        />
-        <button onClick={onAddPost} className={styles.button} type='submit'>
-          send post
-        </button>
-      </div>
+<AddNewPostFormRedux  onSubmit={onAddPost} />
       {postsElements}
     </div>
   );
