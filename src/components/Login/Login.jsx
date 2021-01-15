@@ -19,13 +19,14 @@ const LoginForm = (props) => {
       <div>
         <Field type={'checkbox'} name={'rememberMe'} component={InputArea} /> remember me
       </div>
+      {props.error && <p className={styles.formSummaryError}>{props.error}</p>}
       <div>
         <button>Login</button>
       </div>
     </form>
   )
 }
-const LoginReduxForm = reduxForm({form:'email'})(LoginForm);
+const LoginReduxForm = reduxForm({form:'login'})(LoginForm);
 
 const Login = (props) => {
   const onSubmit =(formData)=>{
