@@ -9,7 +9,6 @@ import {
 } from "../../redux/friendsPageReducer";
 import Friends from "./Friends";
 import Preloader from "../common/Preloader/Preloader";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
 class FriendsContainer extends React.Component {
@@ -95,7 +94,7 @@ const mapStateToProps = (state) => {
 // })(withRedirect)
 
 export default compose(
-  withAuthRedirect,
+  // withAuthRedirect,
   connect(mapStateToProps, {
     follow, unfollow, setTotalUsersCount, setCurrentPage, toggleFollowingProgress, getUsers,
   })
