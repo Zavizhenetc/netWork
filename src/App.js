@@ -32,15 +32,15 @@ class App extends React.Component {
           <section className="main">
             <Navbar/>
             <Route path="/Dialogs"
-                   render={() => <DialogsContainer/>}/>
+                   render={() => <DialogsContainer />}/>
             <Route path="/profile/:userId?"
-                   render={() => <ProfileContainer/>}/>
+                   render={() => <ProfileContainer />}/>
             <Route path="/Friends"
-                   render={() => <FriendsContainer/>}/>
+                   render={() => <FriendsContainer />}/>
             <Route path="/Login"
-                   render={() => <LoginPage/>}/>
+                   render={() => <LoginPage />}/>
             <Route path="/News"
-                   render={() => <News/>}/>
+                   render={() => <News />}/>
             <Route path="/Music"
                    render={() => <Music/>}/>
             <Route path="/Settings"
