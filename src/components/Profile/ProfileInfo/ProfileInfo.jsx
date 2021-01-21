@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus"
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
 const ProfileInfo = (props) => {
@@ -11,7 +12,8 @@ const ProfileInfo = (props) => {
   } else {
     return (
       <div>
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+        {/*<ProfileStatus status={props.status} updateStatus={props.updateStatus} />*/}
         <div className={styles.author}>
           <div className={styles.avatarContainer}>
             <img className={styles.authorAvatar}
