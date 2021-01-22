@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, Route, withRouter} from "react-router-dom"
+import { Route, withRouter} from "react-router-dom"
 
 import "./App.css";
 import Footer from "./components/Footer/Footer";
@@ -22,9 +22,10 @@ class App extends React.Component {
   componentDidMount() {
     this.props.initializeApp();
   }
+
   render() {
-    if(!this.props.initialized){
-      return <Preloader />
+    if (!this.props.initialized) {
+      return <Preloader/>
     } else {
       return (
         <div className="root">
@@ -32,21 +33,20 @@ class App extends React.Component {
           <section className="main">
             <Navbar/>
             <Route path="/Dialogs"
-                   render={() => <DialogsContainer />}/>
+                   render={() => <DialogsContainer/>}/>
             <Route path="/profile/:userId?"
-                   render={() => <ProfileContainer />}/>
+                   render={() => <ProfileContainer/>}/>
             <Route path="/Friends"
-                   render={() => <FriendsContainer />}/>
+                   render={() => <FriendsContainer/>}/>
             <Route path="/Login"
-                   render={() => <LoginPage />}/>
+                   render={() => <LoginPage/>}/>
             <Route path="/News"
-                   render={() => <News />}/>
+                   render={() => <News/>}/>
             <Route path="/Music"
                    render={() => <Music/>}/>
             <Route path="/Settings"
                    render={() => <Settings/>}/>
             {/*<Friends/>*/}
-
           </section>
           <Footer/>
         </div>
@@ -54,6 +54,7 @@ class App extends React.Component {
     }
   }
 }
+
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })

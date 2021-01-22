@@ -13,16 +13,6 @@
     flex-wrap: wrap;
 }
 
-.selectedPage {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.pageNum {
-    margin-right: .5em;
-    cursor: pointer;
-}
-
 .userPhoto {
     border-radius: 50%;
     max-width: 200px;
