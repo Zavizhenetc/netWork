@@ -1,6 +1,5 @@
 import React from "react";
-import { Route, withRouter} from "react-router-dom"
-
+import {BrowserRouter, Route, withRouter} from "react-router-dom"
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
@@ -12,10 +11,11 @@ import FriendsContainer from "./components/Friends/FriendsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/appReducer";
 import {compose} from "redux";
 import Preloader from "./components/common/Preloader/Preloader";
+import store from "./redux/redux-store";
 
 
 class App extends React.Component {
@@ -59,8 +59,20 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-export default compose(
+const AppContainer  = compose(
   withRouter,
   connect(mapStateToProps, {initializeApp}))(App);
-// export default connect(mapStateToProps, {initializeApp})(App);
+const NetWork = (props)=>{
+ return(
+   <BrowserRouter>
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+  </BrowserRouter>
+ )
+}
+export default NetWork;
+// export default compose(
+//   withRouter,
+//   connect(mapStateToProps, {initializeApp}))(App);
 

@@ -1,4 +1,4 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import profilePageReducer from './profilePageReducer.js';
 import dialogsPageReducer from './dialogsPageReducer.js';
 import sideBarReducer from './sideBarReducer.js';
@@ -18,9 +18,13 @@ const reducers = combineReducers({
   form: formReducer,
   app: appReducer,
 });
+//подключаем раширение для хром redux devTools
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, /* preloadedState, */ composeEnhancers(
+  applyMiddleware(thunkMiddleware)
+));
+// let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware));
-
-window.store = store;
+// window.__store__ = store;
 
 export default store;
