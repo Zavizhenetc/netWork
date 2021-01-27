@@ -11,13 +11,6 @@ return <header className={styles.header}>
      {props.isAuth ? <div>{props.login} <button onClick={props.logout} >logout</button></div> :  <NavLink to={'/login'}>Login</NavLink>}
 
   </div>
-{/*<nav className={styles.nav}>*/}
-{/*  <ul className={styles.items}>*/}
-{/*    <li className={styles.item}></li>*/}
-{/*    <li className={styles.item}></li>*/}
-{/*    <li className={styles.item}></li>*/}
-{/*  </ul>*/}
-{/*</nav>*/}
 </header>
 }
 

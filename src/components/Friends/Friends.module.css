@@ -1,7 +1,11 @@
 .friends {
-    margin: 0 auto;
+    align-self: center;
     min-height: 100vh;
-    width: 70%;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1%;
+    /*flex-direction: column;*/
     /*background-color: white;*/
     /*width: 12em;*/
     /*position: fixed;*/
@@ -25,4 +29,10 @@
     margin: 0 auto;
     width: 60px;
     height: 60px;
+}
+.friend{
+    text-align: center;
+    padding: 1%;
+    margin: 0 auto;
+
 }

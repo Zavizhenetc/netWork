@@ -4,6 +4,13 @@
 }
 
 .pageNum {
-  margin-right: .5em;
+  margin-left: .5em;
   cursor: pointer;
+}
+.pageNum:last-child {
+  margin-right: .5em;
+}
+.pagesNums{
+  width: 100%;
+  text-align: center;
 }

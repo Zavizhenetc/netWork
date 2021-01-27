@@ -9,7 +9,7 @@ const Friends = ({currentPage, totalUsersCount, pageSize, onPageChanged, ...prop
 
   return (
     <div className={styles.friends}>
-      <Paginator currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize}
+      <Paginator currentPage={currentPage} totalItemsCount={totalUsersCount} pageSize={pageSize}
                  onPageChanged={onPageChanged}/>
 
       {props.friendsPage.map(user =>
