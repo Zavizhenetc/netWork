@@ -1,5 +1,5 @@
 import React, {Suspense} from "react";
-import {BrowserRouter, Route, withRouter} from "react-router-dom"
+import {BrowserRouter, HashRouter, Route, withRouter} from "react-router-dom"
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
@@ -28,9 +28,9 @@ class App extends React.Component {
   }
 
   render() {
-    if (!this.props.initialized) {
-      return <Preloader/>
-    } else {
+    // if (!this.props.initialized) {
+    //   return <HeaderContainer/>
+    // } else {
       return (
         <div className="root">
           <HeaderContainer/>
@@ -56,7 +56,7 @@ class App extends React.Component {
         </div>
       );
     }
-  }
+  // }
 }
 
 const mapStateToProps = (state) => ({
@@ -68,11 +68,13 @@ const AppContainer = compose(
   connect(mapStateToProps, {initializeApp}))(App);
 const NetWork = (props) => {
   return (
-    <BrowserRouter>
+    // <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter >
       <Provider store={store}>
         <AppContainer/>
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
+    // </BrowserRouter>
   )
 }
 export default NetWork;
