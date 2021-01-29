@@ -1,14 +1,13 @@
-import React, {Component} from "react";
+import React from "react";
 import styles from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 import PostsContainer from "./Posts/PostsContainer.jsx";
-import {updateStatus} from "../../redux/profilePageReducer";
 
 
 const Profile = (props) => {
   return (
     <div className={styles.content}>
-      <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+      <ProfileInfo  isOwner={props.isOwner} savePhoto={props.savePhoto} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
       <PostsContainer />
     </div>
   );

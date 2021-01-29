@@ -2,24 +2,29 @@
 import React, {Component} from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
+import userPhoto from '../../../assets/images/user.png';
 import ProfileStatus from "./ProfileStatus"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
 const ProfileInfo = (props) => {
+
+  const onMainPhotoSelected =(e)=>{
+if(e.target.files.length ){
+  props.savePhoto(e.target.files[0]);
+}
+  }
   if (!props.profile) {
     return <Preloader/>
-  } else {
+  }
     return (
       <div>
         <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
         {/*<ProfileStatus status={props.status} updateStatus={props.updateStatus} />*/}
         <div className={styles.author}>
           <div className={styles.avatarContainer}>
-            <img className={styles.authorAvatar}
-              // src="https://img3.goodfon.ru/wallpaper/nbig/8/37/dzhon-snou-igra-prestolov-kit.jpg"
-                 src={props.profile.photos.large}
-            />
+            <img className={styles.authorAvatar}  src={props.profile.photos.large || userPhoto }/>
+            {props.isOwner && <input type="file" onChange={onMainPhotoSelected} /> }
 
           </div>
           <div className={styles.authorContainer}>
@@ -31,7 +36,6 @@ const ProfileInfo = (props) => {
       </div>
 
     )
-  };
 }
 
 export default ProfileInfo
