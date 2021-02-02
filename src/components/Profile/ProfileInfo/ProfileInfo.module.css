@@ -6,7 +6,7 @@
  }
  .authorAvatar{
    width: 100%;
-   height: 100%;
+   /*height: 100%;*/
    border-radius: 50%;
    object-fit: cover;
  
@@ -16,5 +16,29 @@
   /* max-height: 210px; */
  }
  .authorContainer{
-   padding-left: 2em;
+   padding-left: 7em;
+
  }
+.authorContainer p{
+    font-weight: bold;
+}
+.authorContainer p span{
+    font-weight: normal;
+    font-style: italic;
+}
+.contacts{
+    font-weight: bold;
+
+}
+.contactTitle{
+    font-style: italic;
+    padding-left: 10%;
+    font-size: .85em;
+}
+.editButton{
+margin-top: 4%;
+}
+.formSummaryError{
+    border: 1px solid red;
+    color: red;
+}

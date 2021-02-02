@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Profile.module.css";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getStatus, getUserProfile, savePhoto, updateStatus} from "../../redux/profilePageReducer";
+import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../redux/profilePageReducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 
@@ -57,7 +57,7 @@ profile: state.profilePage.profile,
 
 });
 export default  compose(
-  connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto }),
+  connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }),
   withRouter,
   // withAuthRedirect
 )(ProfileContainer);
