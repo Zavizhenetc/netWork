@@ -1,5 +1,5 @@
 import React, {Suspense} from "react";
-import {BrowserRouter, HashRouter, Route, withRouter} from "react-router-dom"
+import {BrowserRouter, HashRouter, Route, withRouter, Switch, Redirect} from "react-router-dom"
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
@@ -23,23 +23,35 @@ const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsCo
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 
 class App extends React.Component {
+  catchAllUnhandledErrors =(promiseRejectionEvent)=>{
+    alert(`'error' ${promiseRejectionEvent}`);
+    console.error(promiseRejectionEvent);
+  }
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors );
+  }
+  componentWillUnmount() {
+    window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors );
+
   }
 
   render() {
-    // if (!this.props.initialized) {
-    //   return <HeaderContainer/>
-    // } else {
-      return (
-        <div className="root">
-          <HeaderContainer/>
-          <section className="main">
-            <Navbar/>
+    if (!this.props.initialized) {
+      return <Preloader/>
+    }
+    return (
+      <div className="root">
+        <HeaderContainer/>
+        <section className="main">
+          <Navbar/>
+          <Switch>
+            <Route exact path="/"
+                   render={() => <Redirect to={'/profile'}/>}/>
             <Route path="/Dialogs"
-                   render={ withSuspense( DialogsContainer) }/>
+                   render={withSuspense(DialogsContainer)}/>
             <Route path="/profile/:userId?"
-                   render={ withSuspense( ProfileContainer) }/>
+                   render={withSuspense(ProfileContainer)}/>
             <Route path="/Friends"
                    render={() => <FriendsContainer/>}/>
             <Route path="/Login"
@@ -50,13 +62,15 @@ class App extends React.Component {
                    render={() => <Music/>}/>
             <Route path="/Settings"
                    render={() => <Settings/>}/>
-            {/*<Friends/>*/}
-          </section>
-          <Footer/>
-        </div>
-      );
-    }
-  // }
+            <Route path="*"
+                   render={() => <h1 className='pageNotFound'>404 PAGE NOT FOUND</h1>}/>
+          </Switch>
+        </section>
+        <Footer/>
+      </div>
+    );
+  }
+
 }
 
 const mapStateToProps = (state) => ({
@@ -68,13 +82,13 @@ const AppContainer = compose(
   connect(mapStateToProps, {initializeApp}))(App);
 const NetWork = (props) => {
   return (
-    // <BrowserRouter basename={process.env.PUBLIC_URL}>
-    <HashRouter >
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      {/*<HashRouter >*/}
       <Provider store={store}>
         <AppContainer/>
       </Provider>
-    </HashRouter>
-    // </BrowserRouter>
+      {/*</HashRouter>*/}
+      // </BrowserRouter>
   )
 }
 export default NetWork;

@@ -41,6 +41,10 @@ grid-gap: 30px; */
 .App-link {
   color: #61dafb;
 }
+.pageNotFound{
+  text-align: center;
+
+}
 
 @keyframes App-logo-spin {
   from {
