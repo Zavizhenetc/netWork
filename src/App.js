@@ -25,7 +25,7 @@ const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileCo
 class App extends React.Component {
   catchAllUnhandledErrors =(promiseRejectionEvent)=>{
     // alert(`'error' ${promiseRejectionEvent}`);
-    // console.error(promiseRejectionEvent);
+    console.error(promiseRejectionEvent);
   }
   componentDidMount() {
     this.props.initializeApp();
@@ -82,13 +82,13 @@ const AppContainer = compose(
   connect(mapStateToProps, {initializeApp}))(App);
 const NetWork = (props) => {
   return (
-    // <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <HashRouter >
-      <Provider store={store}>
-        <AppContainer/>
-      </Provider>
-      </HashRouter>
-      // </BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+     {/*<HashRouter >*/}
+       <Provider store={store}>
+         <AppContainer/>
+       </Provider>
+      {/*</HashRouter>*/}
+    </BrowserRouter>
   )
 }
 export default NetWork;
