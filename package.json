@@ -2,7 +2,6 @@
   "name": "network",
   "version": "0.1.0",
   "description": "Project netWork",
-  "homepage": "https://zavizhenetc.github.io/netWork",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
