@@ -1,28 +1,40 @@
 .posts {
-  padding-top: 2em;
-  padding-bottom: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
+
 .addPost {
-  width: 100%;
-  min-height: 2em;
-  border: none;
-  background-color: #00000014;
-  padding-left: 2%;
+    min-width: 90%;
+    min-height: 4em;
+    border: none;
+    background-color: #00000014;
+    padding-left: 2%;
+    margin-right: 2em;
+    border-radius: 10px;
+    width: 30em;
 }
+
 .button {
-  text-align: center;
-  font-size: 14px;
-  width: 15%;
-  border: none;
-  border-left: 1px solid white;
-  background-color: #00000014;
+    text-align: center;
+    font-size: 14px;
+    width: 15%;
+    border: none;
+    align-self: center;
+    min-height: 3em;
+    border-radius: 10px;
+    /*border-left: 1px solid white;*/
+    background-color: #00000014;
 }
+
 .button:hover {
-  cursor: pointer;
-  color: white;
+    cursor: pointer;
+    color: white;
 }
-.input{
-  display: flex;
-  min-height: 3em;
-  margin-bottom: 3em;
+
+.input {
+    display: flex;
+    /*min-height: 3em;*/
+    margin-bottom: 3em;
+    width: 80%;
+
 }
